@@ -5,7 +5,7 @@
 if (have_posts ()) : while (have_posts() ): the_post (); ?> 
 
 <!--then show the t-->
-<h1> <?php the_title();?> </h1>
+<h3> <?php the_title();?> </h3>
  <!--and then only part of the post-->
     <?php the_excerpt(); ?>
 
