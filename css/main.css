@@ -72,9 +72,18 @@ header .top-bar li .sub-menu a:hover {
 }
 
 
-header .top-bar .menu-item-has-children:hover .sub-menu  {
+header .top-bar > .menu-item-has-children:hover > .sub-menu  {
     display: block;
     
+}
+
+header .top-bar .menu-item-has-children .sub-menu > .menu-item-has-children:hover .sub-menu {
+    display: block;
+}
+
+header .top-bar .sub-menu li .sub-menu {
+    top: 0;
+    Left: 100%;
 }
 
 
