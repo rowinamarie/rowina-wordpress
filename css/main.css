@@ -40,12 +40,13 @@ header .top-bar li:last-child a {
 }
 
 
+
 header .top-bar li .sub-menu {
     display: none;
 }
 
-header .top-bar .menu-item-has-children .sub-menu {
+
+header .top-bar .menu-item-has-children:hover .sub-menu  {
     display: block;
 }
 
-testi
