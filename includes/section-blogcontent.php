@@ -5,8 +5,10 @@
     <?php 
     $fname = get_the_author_meta('first_name');
     $lname = get_the_author_meta('last_name');
-    echo $fname . ' ' . $lname ?>
-    
+   ?>
+
+   <p> Kirjoittaja: <?php echo $fname?> <?php echo $lname?> </p>
+
     <?php the_content(); ?>
 
 <?php endwhile; else : endif;?>
