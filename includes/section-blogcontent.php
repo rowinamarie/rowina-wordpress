@@ -12,4 +12,16 @@
 
     <?php the_content(); ?>
 
+    <?php
+    $tags = get_the_tags();
+    foreach ($tags as $tag): // tämä aloittaa loopin
+    ?>
+
+     <a href=" <?php echo get_tag_link($tag -> term_id); ?>">
+        <?php echo $tag ->name;?>
+     </a><!--linkkaa tägiin-->
+
+    <?php endforeach?> <!--lopettaa loopin-->
+
+
 <?php endwhile; else : endif;?>
