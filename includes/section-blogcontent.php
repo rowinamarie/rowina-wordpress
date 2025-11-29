@@ -39,7 +39,7 @@
     <?php endforeach?> <!--lopettaa loopin-->
 
     <!--kommenttiosio-->
-    <?php comments_template(); ?>
+    <?php //comments_template(); ?>
     
 
   
