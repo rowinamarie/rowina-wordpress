@@ -1,6 +1,16 @@
 
 <?php if (have_posts ()) : while (have_posts() ): the_post (); ?> 
 
+  <!--Kategorioiden tulostus sivun ylälaitaan-->
+
+  <?php
+    $categories = get_the_category();
+    foreach($categories as $cat):?>
+
+        <?php echo $cat->name;?>
+    
+    <?php endforeach;?>
+
 <p> <?php echo get_the_date ('d.m.Y');?>   </p>
 
     <?php 
@@ -19,11 +29,14 @@
     foreach ($tags as $tag): // tämä aloittaa loopin
     ?>
 
-     <a href=" <?php echo get_tag_link($tag -> term_id); ?>">
+     <a href=" <?php echo get_tag_link($tag -> term_id); ?>" class="badge badge-success">
         <?php echo $tag ->name;?>
      </a><!--linkkaa tägiin-->
 
     <?php endforeach?> <!--lopettaa loopin-->
-<
+    
+
+  
+
 
 <?php endwhile; else : endif;?>
