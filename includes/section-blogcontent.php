@@ -37,6 +37,9 @@
      </a><!--linkkaa tägiin-->
 
     <?php endforeach?> <!--lopettaa loopin-->
+
+    <!--kommenttiosio-->
+    <?php comments_template(); ?>
     
 
   
