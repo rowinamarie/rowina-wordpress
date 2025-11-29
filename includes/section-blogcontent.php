@@ -12,6 +12,8 @@
 
     <?php the_content(); ?>
 
+
+    <!--Tagien tulostus sivun alalaitaan-->
     <?php
     $tags = get_the_tags();
     foreach ($tags as $tag): // tämä aloittaa loopin
@@ -22,6 +24,6 @@
      </a><!--linkkaa tägiin-->
 
     <?php endforeach?> <!--lopettaa loopin-->
-
+<
 
 <?php endwhile; else : endif;?>
