@@ -28,7 +28,7 @@ add_action ('wp_enqueue_scripts', 'load_js');
 
 // Theme options
 add_theme_support ('menus'); // Tällä saadaan valikkoasetukset näkyviin
-
+add_theme_support ('post-thumbnails'); 
 
 
 // Menus
@@ -39,5 +39,6 @@ register_nav_menus(
     )
 
 );
+
 
 ?>
