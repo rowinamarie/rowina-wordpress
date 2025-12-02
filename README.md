@@ -30,8 +30,10 @@ Luo tiedostot <br>
 <ol>
 <li>`archive.php` </li>
 <li>`index.php` </li>
+<li>`footer.php` </li>
 <li>`front-page.php` </li>
 <li>`functions.php` </li>
+<li>`header.php` </li>
 <li>`page.php` </li>
 <li>`search.php` </li>
 <li>`404.php` </li>
@@ -43,4 +45,14 @@ Style.css tiedostoon muista lisätä kommenttina <br>
 Theme Name: teeman nimi <br>
 Author: tekijän nimi <br>
 
+
+## Part 3 Enqueuing CSS and JS to to WP theme
+<p> `header.php`tiedostoon alustetaan HTML - tiedoot, kuten esim. headin tiedot. <br>
+Tänne lisätään myös header näkyviin </p>
+
+<p> 
+`functions.php`tiedostossa haetaan tyylit load_css functiolla <br>
+Bootstrapin js ja css kansioden lataaminen teeman-kansioon. Functiolla sitten osoitetaan, että mistä nämä löytyvät
+
+</p>
 
