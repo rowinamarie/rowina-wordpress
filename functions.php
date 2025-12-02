@@ -12,6 +12,7 @@ function load_css() {
 
     } 
     
+// tämä aktivoi tuon yllä olevan lataamisen
     add_action('wp_enqueue_scripts', 'load_css');
     
 
