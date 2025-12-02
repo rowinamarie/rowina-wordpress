@@ -2,12 +2,13 @@
 
 WP:n asennus lokaalissa. 
 
-WP setup-config:
-Database Name: tietokannan nimi eli se nimi minkä loit [phpAdminissa](http://localhost/phpmyadmin/)
-Username (lokaalissa): root
+<p> WP setup-config: </p>
+<p> Database Name: tietokannan nimi eli se nimi minkä loit [phpAdminissa](http://localhost/phpmyadmin/) 
 Password: voi jättää huomioimatta
 Database Host: localhost
 Table prefix: wp_
+</p>
+
 
 ## Lokaalin FTP herjan poistaminen 
 Huomioitavaa, jotta lokaalissa onnistuu pluginien lataaminen ja ettei Wordpress herjaisi FTP-ilmoitusta, tee seuraavaasti: 
