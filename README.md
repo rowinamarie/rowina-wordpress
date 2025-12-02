@@ -2,11 +2,10 @@
 
 WP:n asennus lokaalissa. 
 
-<p> WP setup-config: </p>
-<p> Database Name: tietokannan nimi eli se nimi minkä loit [phpAdminissa](http://localhost/phpmyadmin/) 
-Password: voi jättää huomioimatta
-Database Host: localhost
-Table prefix: wp_
+<p> WP setup-config:  Database Name: tietokannan nimi eli se nimi minkä loit [phpAdminissa](http://localhost/phpmyadmin/) <br>
+Password: voi jättää huomioimatta<br>
+Database Host: localhost<br>
+Table prefix: wp_<br>
 </p>
 
 
