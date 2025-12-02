@@ -14,4 +14,7 @@ Huomioitavaa, jotta lokaalissa onnistuu pluginien lataaminen ja ettei Wordpress 
 Avaa wp-config.php -tiedosto
 Lisää define ('FS_METHOD', 'direct');
 
+Lisää htdocs-kansioon oikeudet terminaalissa
+Siirry terminaalissa kansion polkuun ja tee komento sudo chmod -R 777 wordpress
+
 
