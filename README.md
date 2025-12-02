@@ -83,5 +83,11 @@ Bootstrapin js ja css kansioden lataaminen teeman-kansioon. Functiolla `get_temp
     }
 
 add_action ('wp_enqueue_scripts', 'load_js');
-````
+```
+
+jquery - is a dependency that is already there <br>
+false - no need to define the version<br>
+true - should it be in the footer or header. False if JavaScript is in header, and True if JS is in footer  <br>
+
+## Part 4 Template Parts & Page Templates
 
