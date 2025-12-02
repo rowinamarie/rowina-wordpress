@@ -6,13 +6,26 @@
 
     <div class ="card mb-3"> <!--Cardilla saa jokaisen postauksen omiin erillisiin laatikoinin -->
 
-        <div class = "card-body">
+        <div class = "card-body d-flex justify-content-center align-items-center">
+
+        <?php if (has_post_thumbnail()): ?> <!--tarkistaa onko asetettu esikatselukuvaa-->
+                
+                <!--blog-large viittaa functions.php:ssa määriteltyyn kuvan kokoons-->
+                <img src = "<?php the_post_thumbnail_url('blog-small');?>" alt="<?php the_title();?>"
+                class="img-fluid mb-3 img-thumbnail mr-4">
+
+        <?php endif;?>
+
+            <div class = "blog-content">
             <!--then show the title-->
             <h3> <?php the_title();?> </h3>
             <!--and then only part of the post-->
             <?php the_excerpt(); ?>
 
             <a href="<?php the_permalink();?>" class ="btn btn-success">Read more </a>
+
             </div>
+        </div>
+            
     </div>
 <?php endwhile; else : endif;?>
