@@ -28,9 +28,15 @@ Settings - Reading - A statig page - Home page ja valitse sivu
 Uusi template luodaan WP:n themes kansioon.
 Luo tiedostot <br>
 <ol>
+<li>`archive.php` </li>
 <li>`index.php` </li>
-<li>`style.ss` </li>
+<li>`front-page.php` </li>
 <li>`functions.php` </li>
+<li>`page.php` </li>
+<li>`search.php` </li>
+<li>`404.php` </li>
+<li>`style.css` </li>
+
 </ol>
 
 Style.css tiedostoon muista lisätä kommenttina <br>
