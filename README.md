@@ -91,7 +91,11 @@ true - should it be in the footer or header. False if JavaScript is in header, a
 
 ## Part 4 Template Parts & Page Templates
 
+### Template tarkoitus
+
 Front pagen sisältö haetaan includes -kansiossa olevasta section-content.php - tiedostosta
+Frontpage.php näyttää ainoastaan sen sivun sisällön, joka on asetettu WP:ssä etusivuksi. 
+
 
 Mitä kukin osa tekee?
 
@@ -100,13 +104,10 @@ Mitä kukin osa tekee?
 Tarkistaa, onko nykyisessä queryssä (esim. sivu, kategoria, hakutulos) yhtään postausta näytettäväksi.
 Palauttaa true jos on, false jos ei.<br>
 
-
-
 `while (have_posts())`
 
 Käy läpi kaikki postaukset yksi kerrallaan niin kauan kuin niitä on jäljellä.
 Tämä on silmukka, joka toistaa sisällön tulostuksen jokaiselle postille.
-
 
 
 `the_post()`
@@ -115,11 +116,9 @@ Valmistelee nykyisen postin tiedot käyttöön (esim. otsikko, sisältö, meta).
 Ilman tätä funktiota et voisi käyttää the_content(), the_title() jne.
 
 
-
 `the_content()`
 
 Tulostaa postin varsinaisen sisällön (editorissa kirjoitettu teksti, kuvat jne.).
-
 
 
 Kokonaislogiikka:
@@ -129,3 +128,10 @@ Jos ei ole postauksia, niin else-osassa voisi näyttää esim. "Ei sisältöä".
 
 Miksi tämä on tärkeää?
 WordPressin Loop on se mekanismi, jolla sivupohjat (template files) hakevat ja näyttävät sisältöä tietokannasta. Ilman sitä sivu ei tiedä, mitä näyttää.<br>
+
+Jotta yllä olevat asetukset toimivat myös muissa perussivuissa, pitää asettaa samat page.php sivuille
+
+Luotiin `template-contactus.php`, jotta siihen voi tehdä erillisen tavan näyttää section-content.php:n sisältöä, joka eroaa muista perussivuista. Template valitaan WP:n sivun sisällönsyöttönäkymässä kohdasta "Template". Tiedostoon laitetaan Templaten nimi, joka sitten näkyy WP:n puolella.
+
+
+### Eri headerit sivuilla
