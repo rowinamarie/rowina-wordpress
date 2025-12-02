@@ -1,12 +1,17 @@
-# rowina-teema initgit add README.mdgit commit -m first commitgit branch -M maingit remote add origin https://github.com/rowinamarie/rowina-teema.gitgit push -u origin main
+# Part 1
+
+WP:n asennus lokaalissa. 
+
+WP setup-config:
+Database Name: tietokannan nimi eli se nimi minkä loit [phpAdminissa](http://localhost/phpmyadmin/)
+Username (lokaalissa): root
+Password: voi jättää huomioimatta
+Database Host: localhost
+Table prefix: wp_
+
+## Lokaalin FTP herjan poistaminen 
+Huomioitavaa, jotta lokaalissa onnistuu pluginien lataaminen ja ettei Wordpress herjaisi FTP-ilmoitusta, tee seuraavaasti: 
+Avaa wp-config.php -tiedosto
+Lisää define ('FS_METHOD', 'direct');
 
 
-
-Jakso 6: Blog Archive, Posts, Pagination
-Opittua: 
-archive.php on WP:n oletus template mitä se käyttää. Lue wordpress template hierarkiasta!
-WP automaattisesti tarkistaa, jos tiettyyn asiaan on olemassa jo template. 
-
-Muokattu single.php sivua. 
-
-Huom. lue php date types. Sieltä löytyy missä muodossa päivämäärät tulee kirjoittaa.
