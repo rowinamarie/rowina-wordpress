@@ -91,3 +91,41 @@ true - should it be in the footer or header. False if JavaScript is in header, a
 
 ## Part 4 Template Parts & Page Templates
 
+Front pagen sisältö haetaan includes -kansiossa olevasta section-content.php - tiedostosta
+
+Mitä kukin osa tekee?
+
+`have_posts()`
+
+Tarkistaa, onko nykyisessä queryssä (esim. sivu, kategoria, hakutulos) yhtään postausta näytettäväksi.
+Palauttaa true jos on, false jos ei.<br>
+
+
+
+`while (have_posts())`
+
+Käy läpi kaikki postaukset yksi kerrallaan niin kauan kuin niitä on jäljellä.
+Tämä on silmukka, joka toistaa sisällön tulostuksen jokaiselle postille.
+
+
+
+`the_post()`
+
+Valmistelee nykyisen postin tiedot käyttöön (esim. otsikko, sisältö, meta).
+Ilman tätä funktiota et voisi käyttää the_content(), the_title() jne.
+
+
+
+`the_content()`
+
+Tulostaa postin varsinaisen sisällön (editorissa kirjoitettu teksti, kuvat jne.).
+
+
+
+Kokonaislogiikka:
+
+Jos on postauksia → käy läpi kaikki → näytä sisältö.<br>
+Jos ei ole postauksia, niin else-osassa voisi näyttää esim. "Ei sisältöä". <br>
+
+Miksi tämä on tärkeää?
+WordPressin Loop on se mekanismi, jolla sivupohjat (template files) hakevat ja näyttävät sisältöä tietokannasta. Ilman sitä sivu ei tiedä, mitä näyttää.<br>
