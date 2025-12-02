@@ -135,3 +135,5 @@ Luotiin `template-contactus.php`, jotta siihen voi tehdä erillisen tavan näytt
 
 
 ### Eri headerit sivuilla
+Eri sivuilla voi olla erilaiset headerit. 
+Sitä varten luodaan `header-secondary.php`tiedosto. Sitten se sivutyyppi, jolla sitä käytetään lisätään `<?php get_header('secondary); ?>`
