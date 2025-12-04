@@ -137,3 +137,52 @@ Luotiin `template-contactus.php`, jotta siihen voi tehdä erillisen tavan näytt
 ### Eri headerit sivuilla
 Eri sivuilla voi olla erilaiset headerit. 
 Sitä varten luodaan `header-secondary.php`tiedosto. Sitten se sivutyyppi, jolla sitä käytetään lisätään `<?php get_header('secondary); ?>`
+
+
+
+# Part 5 - Navigation menus
+
+Omien stylesheetien aktivoiminen.
+- Voi käyttää styles.css -tiedostoa, mutta on parempi luoda aivan erillinen. 
+- Tämän voi luoda esim. css-kansioon. Tässä tapauksessa tehtiin `main.css`
+- Varmista, että oma stylesheet on VASTA muiden stylesheetien jälkeen, koska jälkimmäinen aina yliajaa edellisen
+
+- Lisätään stylesheet load_css funktioon `functions.php`kansiossa
+
+## Menujen luonti
+
+Lisätään `functions.php`kansioon `add_theme_support ('menus');`. Tällä saadaan WP:n Appearence-kohtaan valikkoasetukset näkyviin
+
+### Menu locations
+
+```
+register_nav_menus(
+    array(
+        'top-menu' => 'Top Menu Location', //ensin menun Id ja sitten menun visuaalinen nimi
+        'mobile-menu' => 'Mobile Menu Location',
+    )
+
+);
+```
+
+Tämä rekisteröi menun olemassa olon. 
+
+Seuraavaksi lisätään menut sinne missä niiden halutaan näkyvän. Tässä tapauksessa se lisättiin `header.php` :seen seuraavalla koodilla:
+
+```
+<header>
+    <div class = "container">
+        <?php
+            wp_nav_menu (
+                array (
+                    'theme-location' => 'top-menu',
+                    'menu_class' => 'top-bar',
+            )
+        );
+        ?>
+       </div>
+
+</header>
+
+```
+
