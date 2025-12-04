@@ -154,6 +154,7 @@ Omien stylesheetien aktivoiminen.
 Lisätään `functions.php`kansioon `add_theme_support ('menus');`. Tällä saadaan WP:n Appearence-kohtaan valikkoasetukset näkyviin
 
 ### Menu locations
+Tämä rekisteröi menun olemassa olon:
 
 ```
 register_nav_menus(
@@ -165,7 +166,7 @@ register_nav_menus(
 );
 ```
 
-Tämä rekisteröi menun olemassa olon. 
+
 
 Seuraavaksi lisätään menut sinne missä niiden halutaan näkyvän. Tässä tapauksessa se lisättiin `header.php` :seen seuraavalla koodilla:
 
@@ -175,7 +176,7 @@ Seuraavaksi lisätään menut sinne missä niiden halutaan näkyvän. Tässä ta
         <?php
             wp_nav_menu (
                 array (
-                    'theme-location' => 'top-menu',
+                    'theme_location' => 'top-menu',
                     'menu_class' => 'top-bar',
             )
         );
@@ -185,4 +186,22 @@ Seuraavaksi lisätään menut sinne missä niiden halutaan näkyvän. Tässä ta
 </header>
 
 ```
+
+Mitä rem tarkoittaa?
+
+rem = root em, eli se perustuu juurielementin fonttikokoon (yleensä <html>).
+Jos selaimen oletusfonttikoko on 16px, niin:
+
+1rem = 16px
+0.25rem = 4px
+
+```
+
+header .top-bar li a {
+    padding: .25rem 1rem;
+}
+
+```
+Ensimmäinen arvo (.25rem) = ylä- ja alapuolen padding → 0.25 × 16px = 4px
+Toinen arvo (1rem) = vasen ja oikea padding → 1 × 16px = 16px
 
