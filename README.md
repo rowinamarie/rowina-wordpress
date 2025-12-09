@@ -207,3 +207,14 @@ Toinen arvo (1rem) = vasen ja oikea padding → 1 × 16px = 16px
 
 
 z-index, jolloin valikko menee alla olevan sisällön päälle ß
+
+
+# Part 6 - Blog Archive, Posts, Pagination 
+
+Page.php is for any standard page
+Single.php is for any standard single (blog) post
+
+archive.php käytössä kaikkien postauksien näyttämiseen
+section-archive.php:lla määritetään mitä kustakin postauskesta näytetään + siihen liittyvät tyylit
+
+`<?php the_excerpt(); ?>` näyttää vain osan sisällöstä
