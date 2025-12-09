@@ -4,7 +4,7 @@
 <div class = "container">
 
 <!--Näyttää kategorian nimen-->
-    <h1> <?php echo single_cat_title();?> </h1>
+    <h3> <?php echo single_cat_title();?> </h3>
 
     <?php get_template_part('includes/section', 'archive'); ?>
 
