@@ -75,3 +75,5 @@ function my_sidebars()
 add_action('widgets_init', 'my_sidebars');
 
 //php:n loppu
+
+?>
