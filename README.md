@@ -214,7 +214,41 @@ z-index, jolloin valikko menee alla olevan sisällön päälle ß
 Page.php is for any standard page
 Single.php is for any standard single (blog) post
 
-archive.php käytössä kaikkien postauksien näyttämiseen
+archive.php on oletus arkisto ja on käytössä kaikkien postauksien näyttämiseen
 section-archive.php:lla määritetään mitä kustakin postauskesta näytetään + siihen liittyvät tyylit
 
 `<?php the_excerpt(); ?>` näyttää vain osan sisällöstä
+
+
+## Pagination
+`   <?php previous_posts_link ();?>`
+   ` <?php next_posts_link ();?>`Linkit joilla pääsee seuraaville sivuille
+
+luotiin `category-blog.php`. WP tarkistaa aina, että onko jollekin olemassa olevalle kategorialle jotain omaa templatea, ja tässä tapauksessa sellainen luotiin blogi-kategorialle. 
+
+Luotiin `section-blogcontent.php`, jolloin section-content.php:n sijaan käytetään sitä. 
+
+
+### Päivämäärän ja kirjoittajan lisääminen
+```
+<p> <?php echo get_the_date ('d.m.Y');?>   </p>
+
+    <?php 
+    $fname = get_the_author_meta('first_name');
+    $lname = get_the_author_meta('last_name');
+   ?>
+
+   <p> Kirjoittaja: <?php echo $fname?> <?php echo $lname?> </p>
+
+
+```
+
+## Thumbnail
+
+Jotta kuvia voi lisätä, lisätään functions.php tiedostoom `add_theme_support ('post-thumbnails');`
+Lisätty myös kuvien kooot
+```
+add_image_size('blog-large', 800, 400, true);
+add_image_size('blog-small', 300, 200, true);
+
+```
