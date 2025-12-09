@@ -205,3 +205,5 @@ header .top-bar li a {
 Ensimmäinen arvo (.25rem) = ylä- ja alapuolen padding → 0.25 × 16px = 4px
 Toinen arvo (1rem) = vasen ja oikea padding → 1 × 16px = 16px
 
+
+z-index, jolloin valikko menee alla olevan sisällön päälle ß
