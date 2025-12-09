@@ -1,9 +1,11 @@
 header {
-
     background: #111;
     width: 100%;
     height: 100px;
+}
 
+.widget_nav_menu .menu li::marker {
+    content: none; /* modern way to remove markers */
 }
 
 .page-wrap {
@@ -31,7 +33,7 @@ header .container {
 /* li, koska alunperin ovat listana, mutta flexillä asetettiin ne riviin */
 /* a, kohdistaa sen nimenomaan tuohon yhteen linkkiin*/
 header .top-bar li a {
-    padding: .25rem 1rem;
+    padding: 0.25rem 1rem;
     color: white;
 }
 
@@ -43,12 +45,11 @@ header .top-bar li:last-child a {
     padding-right: 0;
 }
 
-
 header .top-bar li .sub-menu {
     display: none;
     position: absolute;
     z-index: 999;
-    top:100%;
+    top: 100%;
     left: 0;
     background: #fff;
     box-shadow: 1px 1px 10px rgb(0, 0, 0, 0.1);
@@ -56,12 +57,12 @@ header .top-bar li .sub-menu {
     padding: 0;
     list-style-type: none;
     width: 200px;
-    border-radius: .5rem;
+    border-radius: 0.5rem;
 }
 
-header .top-bar li .sub-menu a{
+header .top-bar li .sub-menu a {
     color: red;
-    padding: .25rem;
+    padding: 0.25rem;
     text-align: center;
     display: block;
     text-decoration: none;
@@ -71,10 +72,8 @@ header .top-bar li .sub-menu a:hover {
     color: black;
 }
 
-
-header .top-bar > .menu-item-has-children:hover > .sub-menu  {
+header .top-bar > .menu-item-has-children:hover > .sub-menu {
     display: block;
-    
 }
 
 header .top-bar .menu-item-has-children .sub-menu > .menu-item-has-children:hover .sub-menu {
@@ -83,10 +82,5 @@ header .top-bar .menu-item-has-children .sub-menu > .menu-item-has-children:hove
 
 header .top-bar .sub-menu li .sub-menu {
     top: 0;
-    Left: 100%;
+    left: 100%;
 }
-
-
-
-
-

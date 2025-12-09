@@ -1,18 +1,30 @@
-<?php get_header();?>
+<?php get_header(); ?>
 
 <section class="page-wrap">
 <div class = "container">
 
-<!--Näyttää kategorian nimen-->
-    <h3> <?php echo single_cat_title();?> </h3>
+            <section class = "row"> 
 
-    <?php get_template_part('includes/section', 'archive'); ?>
+                <div class="col-lg-3">
+                        
+                        <?php if (is_active_sidebar('blog-sidebar')): ?>
+                                <?php dynamic_sidebar('blog-sidebar'); ?>
+                        <?php endif; ?>
+                </div>
 
-<!--Näyttää linkit blogi-sivun alalaidassa-->
-    <?php previous_posts_link ();?>
-    <?php next_posts_link ();?>
+                <div class="col-lg-9">
+                <!--Näyttää kategorian nimen-->
+                <h3> <?php echo single_cat_title(); ?> </h3>
 
-</div>
+                <?php get_template_part('includes/section', 'archive'); ?>
+
+                <!--Näyttää linkit blogi-sivun alalaidassa-->
+                <?php previous_posts_link(); ?>
+                <?php next_posts_link(); ?>
+                </div>
+
+            </section>
+        </div>
 </section>
 
-<?php get_footer ();?>
+<?php get_footer(); ?>
