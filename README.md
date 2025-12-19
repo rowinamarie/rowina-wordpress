@@ -275,3 +275,31 @@ $args = array (
 add_action ('init', 'my_first_post_type');
 
 ```
+
+Seuraavaksi lisätään oma taksonomia, tässä esimerkissä esimerkiksi eri autobrändeille
+
+'''
+
+function my_first_taxonomy () {
+
+$args = array (
+
+        'labels' => array (
+
+            'name' => 'Brands',
+            'singular_name' => 'Brand',
+        ),
+        'public' => true,
+        'hierarchical' => true, // jos true, taksonomia on kuin kategoria, jos taas false, enemmän tag
+
+);
+
+    register_taxonomy('brands', array ('cars'), $args);
+
+}
+
+add_action ('init', 'my_first_taxonomy');
+
+'''
+
+HUOM. tämän jälkeen, muista käydä tallentamassa permalinkit uudelleen!
