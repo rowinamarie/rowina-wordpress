@@ -85,7 +85,9 @@ function my_first_post_type()
         'public' => true,
         'has_archive' => true,
         'menu_icon' => 'dashicons-car',
-        'support' => ['title', 'editor', 'thumbnail'],
+        'show_in_rest' => true,
+        'supports' => ['title', 'editor', 'thumbnail'],
+
         // 'rewrite' => array ('slug' => 'my-cars'), jos haluttaisiin muuttaa url polkua muuksi kuin custom post typen nimi
     ];
 
@@ -103,6 +105,7 @@ function my_first_taxonomy()
         ],
         'public' => true,
         'hierarchical' => true, // jos true, taksonomia on kuin kategoria, jos taas false, enemmän tag
+        'show_in_rest' => true,
     ];
 
     register_taxonomy('brands', ['cars'], $args);
