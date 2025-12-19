@@ -34,7 +34,7 @@
     $tags = get_the_tags();
     if ($tags):
         //tarkistaa onko tageja edes olemassa, jos joo siirrytäänn seuraavaan
-        foreach ($tags as $tag): ?> // tämä aloittaa loopin
+        foreach ($tags as $tag): ?> 
 
 
      <a href=" <?php echo get_tag_link($tag->term_id); ?>" class="badge badge-success">
