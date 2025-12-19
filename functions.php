@@ -94,6 +94,22 @@ function my_first_post_type()
 
 add_action('init', 'my_first_post_type');
 
+function my_first_taxonomy()
+{
+    $args = [
+        'labels' => [
+            'name' => 'Brands',
+            'singular_name' => 'Brand',
+        ],
+        'public' => true,
+        'hierarchical' => true, // jos true, taksonomia on kuin kategoria, jos taas false, enemmän tag
+    ];
+
+    register_taxonomy('brands', ['cars'], $args);
+}
+
+add_action('init', 'my_first_taxonomy');
+
 //php:n loppu
 
 ?>
