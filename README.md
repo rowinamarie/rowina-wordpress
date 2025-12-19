@@ -1,6 +1,6 @@
 # Part 1
 
-## WP:n asennus lokaalissa. 
+## WP:n asennus lokaalissa.
 
 <p> WP setup-config:  Database Name: tietokannan nimi eli se nimi minkä loit [phpAdminissa](http://localhost/phpmyadmin/) <br>
 Password: voi jättää huomioimatta<br>
@@ -8,25 +8,24 @@ Database Host: localhost<br>
 Table prefix: wp_<br>
 </p>
 
+## Lokaalin FTP herjan poistaminen
 
-## Lokaalin FTP herjan poistaminen 
-Huomioitavaa, jotta lokaalissa onnistuu pluginien lataaminen ja ettei Wordpress herjaisi FTP-ilmoitusta, tee seuraavaasti: 
+Huomioitavaa, jotta lokaalissa onnistuu pluginien lataaminen ja ettei Wordpress herjaisi FTP-ilmoitusta, tee seuraavaasti:
 Avaa wp-config.php -tiedosto <br>
 Lisää `define ('FS_METHOD', 'direct');` <br>
 Lisää htdocs-kansioon oikeudet terminaalissa <br>
 Siirry terminaalissa kansion polkuun ja tee komento `sudo chmod -R 777 wordpress`<br>
 
-
-Muista myös muuttaa Settings -> Permalinks -> Common settings 
+Muista myös muuttaa Settings -> Permalinks -> Common settings
 
 Etusivun asettaminen myös valikkoon ja sen asettaminen etusivuksi ilman, että tulee osoite.com/etusivu <br>
-Settings - Reading - A statig page - Home page ja valitse sivu 
-
+Settings - Reading - A statig page - Home page ja valitse sivu
 
 ## Part 2
 
 Uusi template luodaan WP:n themes kansioon.
 Luo tiedostot <br>
+
 <ol>
 <li>`archive.php` </li>
 <li>`index.php` </li>
@@ -45,17 +44,16 @@ Style.css tiedostoon muista lisätä kommenttina <br>
 Theme Name: teeman nimi <br>
 Author: tekijän nimi <br>
 
-
 ## Part 3 Enqueuing CSS and JS to to WP theme
+
 <p> `header.php`tiedostoon alustetaan HTML - tiedoot, kuten esim. headin tiedot. <br>
 Tänne lisätään myös header näkyviin </p>
-
 
 `functions.php`tiedostossa haetaan tyylit load_css functiolla <br>
 
 ```
-function load_css() { 
-    
+function load_css() {
+
     wp_register_style('bootstrap', get_template_directory_uri() . '/css/bootstrap.min.css', array(), false, 'all');
     wp_enqueue_style('bootstrap');
 
@@ -63,17 +61,15 @@ function load_css() {
     wp_register_style('main', get_template_directory_uri() . '/css/main.css', array(), false, 'all');
     wp_enqueue_style('main');
 
-    } 
-    
+    }
+
 // tämä aktivoi tuon yllä olevan lataamisen
     add_action('wp_enqueue_scripts', 'load_css');
 
 ```
 
-
-Bootstrapin js ja css kansioden lataaminen teeman-kansioon. Functiolla `get_template_directory_uri` sitten osoitetaan, että mistä nämä löytyvät. 
+Bootstrapin js ja css kansioden lataaminen teeman-kansioon. Functiolla `get_template_directory_uri` sitten osoitetaan, että mistä nämä löytyvät.
 ` add_action('wp_enqueue_scripts', 'load_css');` hook niin sanotusti aktivoi tuon yllä olevan funktion
-
 
 ```
  function load_js() {
@@ -87,15 +83,14 @@ add_action ('wp_enqueue_scripts', 'load_js');
 
 jquery - is a dependency that is already there <br>
 false - no need to define the version<br>
-true - should it be in the footer or header. False if JavaScript is in header, and True if JS is in footer  <br>
+true - should it be in the footer or header. False if JavaScript is in header, and True if JS is in footer <br>
 
 ## Part 4 Template Parts & Page Templates
 
 ### Template tarkoitus
 
 Front pagen sisältö haetaan includes -kansiossa olevasta section-content.php - tiedostosta
-Frontpage.php näyttää ainoastaan sen sivun sisällön, joka on asetettu WP:ssä etusivuksi. 
-
+Frontpage.php näyttää ainoastaan sen sivun sisällön, joka on asetettu WP:ssä etusivuksi.
 
 Mitä kukin osa tekee?
 
@@ -109,17 +104,14 @@ Palauttaa true jos on, false jos ei.<br>
 Käy läpi kaikki postaukset yksi kerrallaan niin kauan kuin niitä on jäljellä.
 Tämä on silmukka, joka toistaa sisällön tulostuksen jokaiselle postille.
 
-
 `the_post()`
 
 Valmistelee nykyisen postin tiedot käyttöön (esim. otsikko, sisältö, meta).
 Ilman tätä funktiota et voisi käyttää the_content(), the_title() jne.
 
-
 `the_content()`
 
 Tulostaa postin varsinaisen sisällön (editorissa kirjoitettu teksti, kuvat jne.).
-
 
 Kokonaislogiikka:
 
@@ -133,17 +125,16 @@ Jotta yllä olevat asetukset toimivat myös muissa perussivuissa, pitää asetta
 
 Luotiin `template-contactus.php`, jotta siihen voi tehdä erillisen tavan näyttää section-content.php:n sisältöä, joka eroaa muista perussivuista. Template valitaan WP:n sivun sisällönsyöttönäkymässä kohdasta "Template". Tiedostoon laitetaan Templaten nimi, joka sitten näkyy WP:n puolella.
 
-
 ### Eri headerit sivuilla
-Eri sivuilla voi olla erilaiset headerit. 
+
+Eri sivuilla voi olla erilaiset headerit.
 Sitä varten luodaan `header-secondary.php`tiedosto. Sitten se sivutyyppi, jolla sitä käytetään lisätään `<?php get_header('secondary); ?>`
-
-
 
 # Part 5 - Navigation menus
 
 Omien stylesheetien aktivoiminen.
-- Voi käyttää styles.css -tiedostoa, mutta on parempi luoda aivan erillinen. 
+
+- Voi käyttää styles.css -tiedostoa, mutta on parempi luoda aivan erillinen.
 - Tämän voi luoda esim. css-kansioon. Tässä tapauksessa tehtiin `main.css`
 - Varmista, että oma stylesheet on VASTA muiden stylesheetien jälkeen, koska jälkimmäinen aina yliajaa edellisen
 
@@ -154,6 +145,7 @@ Omien stylesheetien aktivoiminen.
 Lisätään `functions.php`kansioon `add_theme_support ('menus');`. Tällä saadaan WP:n Appearence-kohtaan valikkoasetukset näkyviin
 
 ### Menu locations
+
 Tämä rekisteröi menun olemassa olon:
 
 ```
@@ -165,8 +157,6 @@ register_nav_menus(
 
 );
 ```
-
-
 
 Seuraavaksi lisätään menut sinne missä niiden halutaan näkyvän. Tässä tapauksessa se lisättiin `header.php` :seen seuraavalla koodilla:
 
@@ -202,14 +192,13 @@ header .top-bar li a {
 }
 
 ```
+
 Ensimmäinen arvo (.25rem) = ylä- ja alapuolen padding → 0.25 × 16px = 4px
 Toinen arvo (1rem) = vasen ja oikea padding → 1 × 16px = 16px
 
-
 z-index, jolloin valikko menee alla olevan sisällön päälle ß
 
-
-# Part 6 - Blog Archive, Posts, Pagination 
+# Part 6 - Blog Archive, Posts, Pagination
 
 Page.php is for any standard page
 Single.php is for any standard single (blog) post
@@ -219,21 +208,21 @@ section-archive.php:lla määritetään mitä kustakin postauskesta näytetään
 
 `<?php the_excerpt(); ?>` näyttää vain osan sisällöstä
 
-
 ## Pagination
+
 `   <?php previous_posts_link ();?>`
-   ` <?php next_posts_link ();?>`Linkit joilla pääsee seuraaville sivuille
+` <?php next_posts_link ();?>`Linkit joilla pääsee seuraaville sivuille
 
-luotiin `category-blog.php`. WP tarkistaa aina, että onko jollekin olemassa olevalle kategorialle jotain omaa templatea, ja tässä tapauksessa sellainen luotiin blogi-kategorialle. 
+luotiin `category-blog.php`. WP tarkistaa aina, että onko jollekin olemassa olevalle kategorialle jotain omaa templatea, ja tässä tapauksessa sellainen luotiin blogi-kategorialle.
 
-Luotiin `section-blogcontent.php`, jolloin section-content.php:n sijaan käytetään sitä. 
-
+Luotiin `section-blogcontent.php`, jolloin section-content.php:n sijaan käytetään sitä.
 
 ### Päivämäärän ja kirjoittajan lisääminen
+
 ```
 <p> <?php echo get_the_date ('d.m.Y');?>   </p>
 
-    <?php 
+    <?php
     $fname = get_the_author_meta('first_name');
     $lname = get_the_author_meta('last_name');
    ?>
@@ -247,8 +236,42 @@ Luotiin `section-blogcontent.php`, jolloin section-content.php:n sijaan käytet�
 
 Jotta kuvia voi lisätä, lisätään functions.php tiedostoom `add_theme_support ('post-thumbnails');`
 Lisätty myös kuvien kooot
+
 ```
 add_image_size('blog-large', 800, 400, true);
 add_image_size('blog-small', 300, 200, true);
+
+```
+
+# Custom post types
+
+Luodaan ensin functions.php tiedostoon funktio `my_first-post_type ()`
+
+`$args` muuttujaan lisätään taulukko, johon lisätään kaikki haluamme valinnat tälle post typelle
+
+```
+function my_first_post_type () {
+
+
+$args = array (
+
+        'labels' => array (
+
+            'name' => 'Cars',
+            'singular_name' => 'Car',
+        ), // jotta näkyy wp:n asetuspuolella
+        'hierarchical' => true, // jos true, sivutyyppi on kuin normaali sivu, jos taas false, enemmän post
+        'public' => true,
+        'has_archive' => true,'
+        'menu_icon' => 'dashicons-car' // lisää iconin
+        'support' => array ('title', 'editor', 'thumbnail'),
+       // 'rewrite' => array ('slug' => 'my-cars'), jos haluttaisiin muuttaa url polkua muuksi kuin custom post typen nimi
+);
+
+    register_post_type('cars', $args)
+
+}
+
+add_action ('init', 'my_first_post_type');
 
 ```

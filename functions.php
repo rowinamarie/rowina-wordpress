@@ -74,6 +74,26 @@ function my_sidebars()
 }
 add_action('widgets_init', 'my_sidebars');
 
+function my_first_post_type()
+{
+    $args = [
+        'labels' => [
+            'name' => 'Cars',
+            'singular_name' => 'Car',
+        ], // jotta näkyy wp:n asetuspuolella
+        'hierarchical' => true, // jos true, sivutyyppi on kuin normaali sivu, jos taas false, enemmän post
+        'public' => true,
+        'has_archive' => true,
+        'menu_icon' => 'dashicons-car',
+        'support' => ['title', 'editor', 'thumbnail'],
+        // 'rewrite' => array ('slug' => 'my-cars'), jos haluttaisiin muuttaa url polkua muuksi kuin custom post typen nimi
+    ];
+
+    register_post_type('cars', $args);
+}
+
+add_action('init', 'my_first_post_type');
+
 //php:n loppu
 
 ?>
